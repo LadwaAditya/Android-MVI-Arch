@@ -1,4 +1,4 @@
-package in.epaylater.domain;
+package in.epaylater.cache;
 
 import org.junit.Test;
 
