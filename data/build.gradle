@@ -27,5 +27,6 @@ dependencies {
     implementation project(':cache')
     implementation project(':remote')
     implementation rootProject.kotlinDeps.kotlin
-    implementation rootProject.daggerDeps.javax
+    implementation rootProject.daggerDeps.javaxInject
+    compileOnly rootProject.daggerDeps.javaxAnnotation
 }

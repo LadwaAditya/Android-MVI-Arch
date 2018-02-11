@@ -40,7 +40,9 @@ ext {
             daggerAndroid        : "com.google.dagger:dagger-android-support:2.13",
             daggerCompiler       : "com.google.dagger:dagger-compiler:2.13",
             daggerAndroidCompiler: "com.google.dagger:dagger-android-processor:2.13",
-            javax                : "org.glassfish:javax.annotation:10.0-b28"
+            javax                : "org.glassfish:javax.annotation:10.0-b28",
+            javaxInject          : "javax.inject:javax.inject:1",
+            javaxAnnotation      : "javax.annotation:jsr250-api:1.0"
     ]
 
 }
