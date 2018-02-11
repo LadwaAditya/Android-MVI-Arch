@@ -79,7 +79,7 @@ task pmd(type: Pmd, group: 'Verification', description: 'Inspect sourcecode for 
 }
 
 detekt {
-    version = "1.0.0.RC5-3"
+    version = "1.0.0.RC6-3"
     profile("main") {
         input = "$projectDir/"
         config = "$qualityConfigDir/detekt/detekt.yml"
