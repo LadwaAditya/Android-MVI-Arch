@@ -5,8 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 apply from: '../config/mobile-code-quality/quality.gradle'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
 
     dexOptions {
@@ -17,8 +19,8 @@ android {
 
     defaultConfig {
         applicationId "com.aditya.mvi"
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -78,7 +80,26 @@ dependencies {
     implementation project(':remote')
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation rootProject.ext.kotlinDeps.kotlin
+
+    //Dagger
+    implementation rootProject.ext.daggerDeps.dagger
+    implementation rootProject.ext.daggerDeps.daggerAndroid
+    kapt rootProject.ext.daggerDeps.daggerCompiler
+    kapt rootProject.ext.daggerDeps.daggerAndroidCompiler
+    compileOnly rootProject.ext.daggerDeps.javax
+
+    //Room
+    implementation rootProject.archDeps.room
+    implementation rootProject.archDeps.roomRx
+    kapt rootProject.archDeps.roomCompiler
+
+    //Network
+
+    implementation rootProject.networkDeps.gson
+    implementation rootProject.networkDeps.okhttp
+    implementation rootProject.networkDeps.okhttpLogging
+
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 

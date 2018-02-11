@@ -6,6 +6,6 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
 
 @Database(entities = [PostLocal::class], version = 1)
-abstract class Database : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun postDao(): PostDao
 }

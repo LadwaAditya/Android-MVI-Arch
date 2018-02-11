@@ -7,7 +7,7 @@ import `in`.epaylater.remote.RemoteService
 import io.reactivex.Single
 import javax.inject.Inject
 
-class AppDatamanager
+class AppDataManager
 @Inject constructor(private val remoteService: RemoteService,
                     private val databaseService: DatabaseService) : DataManager {
     
