@@ -1,4 +1,12 @@
+ext {
 
+    //Android
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 19
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+
+}
 dependencies {
     //Local jars
     implementation fileTree(include: ['*.jar'], dir: 'libs')
