@@ -1,0 +1,30 @@
+image: registry.gitlab.com/hardysim/android-ci:latest
+
+cache:
+  paths:
+  - .gradle/wrapper
+  - .gradle/caches
+  - .android/build-cache/
+
+before_script:
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - export ANDROID_SDK_HOME=$CI_PROJECT_DIR
+  - chmod +x ./gradlew
+
+stages:
+#  - build
+  - test
+
+#build:
+#  stage: build
+#  script:
+#    - ./gradlew --no-daemon --info clean
+#    - ./gradlew --no-daemon --info assembleDebug -Dorg.gradle.jvmargs=-Xmx1536m
+#  artifacts:
+#    paths:
+#    - app/build/outputs/
+
+unitTests:
+  stage: test
+  script:
+    - ./gradlew test --no-daemon --info assembleDebug -Dorg.gradle.jvmargs=-Xmx1536m
