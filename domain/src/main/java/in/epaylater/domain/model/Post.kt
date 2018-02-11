@@ -1,4 +1,4 @@
-package `in`.epaylater.data.model
+package `in`.epaylater.domain.model
 
 
 data class Post(val id: Int,
