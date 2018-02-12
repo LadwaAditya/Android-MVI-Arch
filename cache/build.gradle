@@ -3,13 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    def config = rootProject.extensions.getByName("ext")
 
-    compileSdkVersion config.compileSdkVersion
+    compileSdkVersion Versions.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,8 +23,8 @@ android {
 }
 
 dependencies {
-    implementation rootProject.kotlinDeps.kotlin
-    implementation rootProject.archDeps.room
-    implementation rootProject.archDeps.roomRx
-    kapt rootProject.archDeps.roomCompiler
+    implementation Deps.kotlin
+    implementation Deps.room
+    implementation Deps.roomRx
+    kapt Deps.roomCompiler
 }

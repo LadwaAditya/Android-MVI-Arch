@@ -5,11 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 apply from: '../config/mobile-code-quality/quality.gradle'
 
 android {
-    def config = rootProject.extensions.getByName("ext")
-
-    compileSdkVersion config.compileSdkVersion
-    buildToolsVersion config.buildToolsVersion
-
+    compileSdkVersion Versions.compileSdkVersion
+    buildToolsVersion Versions.buildToolsVersion
 
     dexOptions {
         maxProcessCount 8
@@ -19,8 +16,8 @@ android {
 
     defaultConfig {
         applicationId "com.aditya.mvi"
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -80,25 +77,24 @@ dependencies {
     implementation project(':remote')
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.kotlinDeps.kotlin
+    implementation Deps.kotlin
 
     //Dagger
-    implementation rootProject.ext.daggerDeps.dagger
-    implementation rootProject.ext.daggerDeps.daggerAndroid
-    kapt rootProject.ext.daggerDeps.daggerCompiler
-    kapt rootProject.ext.daggerDeps.daggerAndroidCompiler
-    compileOnly rootProject.ext.daggerDeps.javax
+    implementation Deps.dagger
+    implementation Deps.daggerAndroid
+    kapt Deps.daggerCompiler
+    kapt Deps.daggerAndroidCompiler
+    compileOnly Deps.javax
 
     //Room
-    implementation rootProject.archDeps.room
-    implementation rootProject.archDeps.roomRx
-    kapt rootProject.archDeps.roomCompiler
+    implementation Deps.room
+    implementation Deps.roomRx
+    kapt Deps.roomCompiler
 
     //Network
-
-    implementation rootProject.networkDeps.gson
-    implementation rootProject.networkDeps.okhttp
-    implementation rootProject.networkDeps.okhttpLogging
+    implementation Deps.gson
+    implementation Deps.okhttp
+    implementation Deps.okhttpLogging
 
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'

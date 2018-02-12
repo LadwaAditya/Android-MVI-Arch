@@ -2,13 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    def config = rootProject.extensions.getByName("ext")
 
-    compileSdkVersion config.compileSdkVersion
+    compileSdkVersion Versions.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -27,9 +26,9 @@ dependencies {
     implementation project(':cache')
     implementation project(':remote')
     implementation project(':domain')
-    implementation rootProject.kotlinDeps.kotlin
-    implementation rootProject.daggerDeps.javaxInject
-    implementation rootProject.rxDeps.rxJava
+    implementation Deps.kotlin
+    implementation Deps.javaxInject
+    implementation Deps.rxJava
 
-    compileOnly rootProject.daggerDeps.javaxAnnotation
+    compileOnly Deps.javaxAnnotation
 }

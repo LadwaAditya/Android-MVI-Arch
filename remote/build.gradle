@@ -5,7 +5,7 @@ targetCompatibility = "1.7"
 
 dependencies {
     implementation project(':domain')
-    implementation rootProject.kotlinDeps.kotlin
-    implementation rootProject.rxDeps.rxJava
-    implementation rootProject.networkDeps.retrofit
+    implementation Deps.kotlin
+    implementation Deps.rxJava
+    implementation Deps.retrofit
 }
