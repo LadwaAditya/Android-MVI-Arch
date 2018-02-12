@@ -13,4 +13,6 @@ class AppDataManager
     
     override val posts: Single<List<Post>> get() = remoteService.posts
     override fun getLocalPosts(): Single<List<PostLocal>> = databaseService.getLocalPosts()
+    override fun saveLocalPosts(posts: List<PostLocal>) = databaseService.saveLocalPosts(posts)
+    override fun deleteAllLocalPosts(): Int = databaseService.deleteAllLocalPosts()
 }
