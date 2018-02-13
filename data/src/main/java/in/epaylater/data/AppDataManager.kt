@@ -15,4 +15,5 @@ class AppDataManager
     override fun getLocalPosts(): Single<List<PostLocal>> = databaseService.getLocalPosts()
     override fun saveLocalPosts(posts: List<PostLocal>) = databaseService.saveLocalPosts(posts)
     override fun deleteAllLocalPosts(): Int = databaseService.deleteAllLocalPosts()
+    override fun getPostCount(): Int = databaseService.getPostCount()
 }

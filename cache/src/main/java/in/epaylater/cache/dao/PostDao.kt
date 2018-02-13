@@ -17,4 +17,7 @@ interface PostDao {
     
     @Query("DELETE FROM post")
     fun deleteAllLocalPosts(): Int
+    
+    @Query("SELECT count(*) FROM post")
+    fun getPostCount(): Int
 }
