@@ -86,6 +86,9 @@ dependencies {
     kapt Deps.daggerAndroidCompiler
     compileOnly Deps.javax
 
+    //Arch
+    implementation Deps.lifeCycle
+
     //Room
     implementation Deps.room
     implementation Deps.roomRx

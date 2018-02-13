@@ -1,7 +1,8 @@
-package com.aditya.mvi
+package com.aditya.mvi.post
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.aditya.mvi.R
 
 class MainActivity : AppCompatActivity() {
     

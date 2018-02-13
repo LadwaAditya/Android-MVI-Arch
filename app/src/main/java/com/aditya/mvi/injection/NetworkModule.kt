@@ -25,6 +25,12 @@ class NetworkModule {
     
     @Provides
     @Singleton
+    internal fun provideRemoteService(retrofit: Retrofit): RemoteService {
+        return retrofit.create(RemoteService::class.java)
+    }
+    
+    @Provides
+    @Singleton
     internal fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson, @Named("base_url") url: String): RemoteService {
         return Retrofit.Builder()
             .baseUrl(url)
@@ -33,7 +39,6 @@ class NetworkModule {
             .build()
             .create(RemoteService::class.java)
     }
-    
     
     @Provides
     @Singleton
@@ -68,7 +73,6 @@ class NetworkModule {
             .create()
     }
     
-    
     @Provides
     @Singleton
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
@@ -76,5 +80,4 @@ class NetworkModule {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return loggingInterceptor
     }
-    
 }
